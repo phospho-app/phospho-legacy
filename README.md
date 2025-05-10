@@ -8,6 +8,10 @@
 <a href="https://pypi.org/project/phospho/" target="_blank"><img src="https://img.shields.io/pypi/dm/phospho"></a>
 </div>
 
+<p align="center">
+  <strong>⚠️ This project was discontinued … see&nbsp;→&nbsp;<a href="https://github.com/phospho-app/phosphobot">phosphobot</a> ⚠️</strong>
+</p>
+
 🧪 **phospho** is the **backoffice for your LLM app.**
 
 Detect issues and extract insights from your users' text messages.
