@@ -1,3 +1,4 @@
+import warnings
 import inspect
 import logging
 from contextlib import contextmanager
@@ -16,6 +17,20 @@ from typing import (
     Literal,
     Optional,
     Union,
+)
+
+# Display a prominent warning when the package is imported
+warnings.warn(
+    """
+    ⚠️  WARNING: This package (phospho) is deprecated and no longer maintained! ⚠️
+    
+    You are probably looking for phosphobot instead. 
+    Learn more about phosphobot in the [docs](https://docs.phospho.ai).
+    
+    This package will not receive any updates or bug fixes.
+    """,
+    DeprecationWarning,
+    stacklevel=2,
 )
 
 import pydantic
@@ -213,9 +228,9 @@ def _log_single_event(
     raw_output = convert_content_to_loggable_content(raw_output)
     kwargs = convert_content_to_loggable_content(kwargs)
 
-    assert (
-        (log_queue is not None) and (client is not None)
-    ), "phospho.log() was called but the global variable log_queue was not found. Make sure that phospho.init() was called."
+    assert (log_queue is not None) and (client is not None), (
+        "phospho.log() was called but the global variable log_queue was not found. Make sure that phospho.init() was called."
+    )
 
     # Process the input and output to convert them to dict
     (
